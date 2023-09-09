@@ -26,7 +26,7 @@ app.get('/api', async (req, res) => {
     slack_name: slack_name,
     track: track,
     github_repo_url: "https://github.com/RUTHJEMELI/task_one",
-    github_file_url: 'https://github.com/RUTHJEMELI/task_one',
+    github_file_url: 'https://github.com/RUTHJEMELI/TaskOneBackend/blob/master/index.js',
     status: "200",
   };
 
