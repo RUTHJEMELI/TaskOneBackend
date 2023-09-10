@@ -3,9 +3,9 @@ const app = express();
 app.use(express.json())
 
 
-app.get('/api', async (req, res) => {
+app.get('/api',  (req, res) => {
 
-   const {slack_name, track} = req.body
+   const {slack_name, track} = req.query 
     
 
   // Get the current UTC time
@@ -21,13 +21,13 @@ app.get('/api', async (req, res) => {
   const currentDayOfWeek = daysOfWeek[currentUTC.getUTCDay()];
 
   const response = {
-    utcTime: currentUTC.toISOString(),
-    dayOfWeek: currentDayOfWeek,
-    slack_name: slack_name,
-    track: track,
-    github_repo_url: "https://github.com/RUTHJEMELI/TaskOneBackend/tree/master",
-    github_file_url: 'https://github.com/RUTHJEMELI/TaskOneBackend/blob/master/index.js',
-    status: "200",
+    "utc_time": currentUTC.toISOString(),
+    "current-day": currentDayOfWeek,
+    "slack_name": slack_name,
+    "track": track,
+    "github_repo_url": "https://github.com/RUTHJEMELI/task_one",
+    "github_file_url": 'https://github.com/RUTHJEMELI/task_one',
+    "status_code": 200,
   };
 
   // Send the response
