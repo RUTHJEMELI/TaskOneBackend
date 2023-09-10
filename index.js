@@ -22,7 +22,7 @@ app.get('/api',  (req, res) => {
 
   const response = {
     "utc_time": currentUTC.toISOString(),
-    "current-day": currentDayOfWeek,
+    "current_day": currentDayOfWeek,
     "slack_name": slack_name,
     "track": track,
     "github_repo_url": "https://github.com/RUTHJEMELI/task_one",
