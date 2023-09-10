@@ -1,27 +1,18 @@
 const express = require('express');
 const app = express();
-app.use(express.json())
+app.use(express.json());
 
-
-app.get('/api',  (req, res) => {
-
-   const {slack_name, track} = req.query 
-    
+app.get('/api', (req, res) => {
+  const { slack_name, track } = req.query;
 
   // Get the current UTC time
-  const currentUTC = new Date();
-
-  // Get a random offset between -2 and +2 minutes
-  const offsetMinutes = Math.floor(Math.random() * 5) - 2;
-
-
-  currentUTC.setUTCMinutes(currentUTC.getUTCMinutes() + offsetMinutes);
+  const currentUTC = new Date().toISOString().substring(0, 19) + "Z";
 
   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const currentDayOfWeek = daysOfWeek[currentUTC.getUTCDay()];
+  const currentDayOfWeek = daysOfWeek[new Date(currentUTC).getUTCDay()];
 
   const response = {
-    "utc_time": currentUTC.toISOString(),
+    "utc_time": currentUTC,
     "current_day": currentDayOfWeek,
     "slack_name": slack_name,
     "track": track,
@@ -33,7 +24,6 @@ app.get('/api',  (req, res) => {
   // Send the response
   res.json(response);
 });
-
 
 // Start the Express server
 const PORT = process.env.PORT || 3000;
