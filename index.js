@@ -25,8 +25,8 @@ app.get('/api',  (req, res) => {
     "current_day": currentDayOfWeek,
     "slack_name": slack_name,
     "track": track,
-    "github_repo_url": "https://github.com/RUTHJEMELI/task_one",
-    "github_file_url": 'https://github.com/RUTHJEMELI/task_one',
+    "github_repo_url": "https://github.com/RUTHJEMELI/TaskOneBackend.git",
+    "github_file_url": 'https://github.com/RUTHJEMELI/TaskOneBackend/blob/master/index.js',
     "status_code": 200,
   };
 
